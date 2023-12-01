@@ -1,4 +1,4 @@
-package com.pas.armas;
+package com.pas.treinos;
 
 public class Treino {
     private String nome;

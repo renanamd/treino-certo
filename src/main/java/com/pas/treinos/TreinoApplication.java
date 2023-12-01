@@ -1,4 +1,4 @@
-package com.pas.armas;
+package com.pas.treinos;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
