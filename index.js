@@ -10,17 +10,13 @@ app.get('/alunos', async function(req, res) {
   res.status(200).json(aluno);
 })
 
-app.listen (3000, () => {
-    console.log('Servidor conectado na porta 3000')
-})
 
-
-mongoose.connect('mongodb+srv://renanamd:2604@cluster0.zg3orrg.mongodb.net/flag_api') 
-try {
- console.log('Banco de dados conectado')
-} catch (error) {
- console.log(error)
-}
+mongoose.connect('mongodb+srv://renanamd:2604@cluster0.zg3orrg.mongodb.net/flag_api')
+.then (() => {
+    console.log('Banco de dados conectado')
+}).catch ( (error) => {
+    console.log (error)
+}) 
 
 
 
@@ -66,3 +62,7 @@ app.delete ('/alunos/:id', async function (req,res){
     }
 })
 
+
+app.listen (8952, () => {
+    console.log('Servidor conectado na porta 8952')
+})
