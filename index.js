@@ -10,16 +10,6 @@ app.get('/alunos', async function(req, res) {
   res.status(200).json(aluno);
 })
 
-
-mongoose.connect('mongodb+srv://renanamd:2604@cluster0.zg3orrg.mongodb.net/flag_api')
-.then (() => {
-    console.log('Banco de dados conectado')
-}).catch ( (error) => {
-    console.log (error)
-}) 
-
-
-
 app.post('/alunos', async(req,res) => {
     try {
         const aluno = await Aluno.create(req.body) 
@@ -62,6 +52,12 @@ app.delete ('/alunos/:id', async function (req,res){
     }
 })
 
+mongoose.connect('mongodb+srv://renanamd:2604@cluster0.zg3orrg.mongodb.net/flag_api')
+.then (() => {
+    console.log('Banco de dados conectado')
+}).catch ( (error) => {
+    console.log (error)
+}) 
 
 app.listen (8952, () => {
     console.log('Servidor conectado na porta 8952')
