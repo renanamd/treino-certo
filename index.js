@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-const mongoose = require('mongoose') 
+/* const mongoose = require('mongoose') */
 const Aluno = require('./models/alunoModelo')
 app.use(express.json())
 
@@ -14,13 +14,14 @@ app.listen (1032, () => {
     console.log('Servidor conectado na porta 1032')
 })
 
+/*
  mongoose.connect('mongodb+srv://renanamd:2604@cluster0.zg3orrg.mongodb.net/flag_api')
 .then (() => {
     console.log('Banco de dados conectado')
 }).catch ( () => {
     console.log (error)
 }) 
-
+*/
 
 
 app.post('/alunos', async(req,res) => {
