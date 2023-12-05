@@ -10,16 +10,16 @@ app.get('/alunos', async function(req, res) {
   res.status(200).json(aluno);
 })
 
-app.listen (1032, () => {
-    console.log('Servidor conectado na porta 1032')
+app.listen (3000, () => {
+    console.log('Servidor conectado na porta 3000')
 })
 
 
- mongoose.connect('mongodb+srv://renanamd:2604@cluster0.zg3orrg.mongodb.net/flag_api')
+mongoose.connect('mongodb+srv://renanamd:2604@cluster0.zg3orrg.mongodb.net/flag_api')
 .then (() => {
     console.log('Banco de dados conectado')
 }).catch ( () => {
-    console.log (error)
+    console.log ('Erro')
 }) 
 
 
