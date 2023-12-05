@@ -19,7 +19,7 @@ mongoose.connect('mongodb+srv://renanamd:2604@cluster0.zg3orrg.mongodb.net/flag_
 .then (() => {
     console.log('Banco de dados conectado')
 }).catch ( () => {
-    console.log (error)
+    console.log ('ERRO')
 }) 
 
 
