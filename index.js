@@ -59,6 +59,6 @@ mongoose.connect('mongodb+srv://renanamd:2604@cluster0.zg3orrg.mongodb.net/flag_
     console.log (error)
 }) 
 
-app.listen (8952, "0.0.0.0", () => {
+app.listen (8952, () => {
     console.log('Servidor conectado na porta 8952')
 })
