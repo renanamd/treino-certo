@@ -2,6 +2,7 @@ const express = require('express')
 const app = express()
 const mongoose = require('mongoose') 
 const Aluno = require('./models/alunoModelo')
+const PORT = process.env.PORT || 3000
 app.use(express.json())
 
 // respond with "hello world" when a GET request is made to the homepage
@@ -59,6 +60,6 @@ mongoose.connect('mongodb+srv://renanamd:2604@cluster0.zg3orrg.mongodb.net/flag_
     console.log (error)
 }) 
 
-app.listen (8952, () => {
-    console.log('Servidor conectado na porta 8952')
+app.listen (PORT, "0.0.0.0", () => {
+    console.log('Servidor conectado na porta 3000')
 })
