@@ -11,10 +11,7 @@ app.get('/alunos', async function(req, res) {
   res.status(200).json(aluno);
 })
 
-
 app.post('/alunos', async(req,res) => {
-
-    const data = {"peso": peso, "altura": altura}
 
     try {
         const aluno = await Aluno.create(req.body) 
