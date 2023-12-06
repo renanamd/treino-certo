@@ -4,7 +4,6 @@
   "description": "Nome do Projeto\r Descrição breve do projeto, explicando o objetivo principal e o contexto (ex: Desenvolvimento de web services para conversão de moedas em um contexto acadêmico).",
   "main": "index.js",
   "scripts": {
-    "start": "node calcularimc.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
