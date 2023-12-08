@@ -34,7 +34,7 @@ app.post('/calcular_imc', (req, res) => {
 });
 
 function enviarParaServidor(tipoTreino) {
-    const urlRailway = 'PEGAR URL RAILWAY';
+    const urlRailway = 'treino-certo-production-fa73.up.railway.app';
 
     // Dados a serem enviados para o servidor do Railway
     const dados = { tipoTreino };
