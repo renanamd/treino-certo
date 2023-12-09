@@ -18,7 +18,7 @@ type Output struct {
 	IMC float64 `json:"imc"` //IMC calculado
 }
 
-func calculateBMI(peso, altura float64) float64 {
+func calculateIMC(peso, altura float64) float64 {
 	return peso / (altura * altura)
 }
 
@@ -32,7 +32,7 @@ func imcResponse(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// Calcula o IMC
-	imc := calculateBMI(input.Peso, input.Altura)
+	imc := calculateIMC(input.Peso, input.Altura)
 
 	// Envia a resposta
 	json.NewEncoder(w).Encode(Output{IMC: imc})
