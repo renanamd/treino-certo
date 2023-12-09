@@ -1,42 +1,44 @@
 package main
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
-	"io/ioutil"
+	"log"
 	"net/http"
-	"treino-certo/model"
-	"treino-certo/server"
+	_ "strconv"
 )
 
+// STRUCT para receber os dados de entrada
+type Input struct {
+	Weight float64 `json:"peso"`   // peso em kg
+	Height float64 `json:"altura"` // altura em metros
+}
+
+// STRUCT para enviar a resposta
+type Output struct {
+	IMC float64 `json:"imc"` //IMC calculado
+}
+
+func calculateBMI(weight, height float64) float64 {
+	return weight / (height * height)
+}
+
+func imcResponse(w http.ResponseWriter, r *http.Request) {
+	var input Input
+
+	// Decodifica o corpo da request
+	if err := json.NewDecoder(r.Body).Decode(&input); err != nil {
+		http.Error(w, err.Error(), http.StatusBadRequest)
+		return
+	}
+
+	// Calcula o IMC
+	imc := calculateBMI(input.Weight, input.Height)
+
+	// Envia a resposta
+	json.NewEncoder(w).Encode(Output{IMC: imc})
+}
+
 func main() {
-
-	requestBody, err := json.Marshal(model.IMCRequest{Weight: 70, Height: 50})
-	if err != nil {
-		fmt.Println("Erro ao codificar a requisição:", err)
-		return
-	}
-
-	server.Provedor()
-	resp, err := http.Post("http://localhost:8080/treino-certo", "application/json", bytes.NewBuffer(requestBody))
-	if err != nil {
-		fmt.Println("Erro ao fazer a solicitação:", err)
-		return
-	}
-	defer resp.Body.Close()
-
-	body, err := ioutil.ReadAll(resp.Body)
-	if err != nil {
-		fmt.Println("Erro ao ler a resposta:", err)
-		return
-	}
-
-	var imcResponse model.IMCResponse
-	if err := json.Unmarshal(body, &imcResponse); err != nil {
-		fmt.Println("Erro ao decodificar a resposta:", err)
-		return
-	}
-
-	fmt.Printf("IMC calculado: %.2f\n", imcResponse.IMC)
+	http.HandleFunc("/calculateIMC", imcResponse)
+	log.Fatal(http.ListenAndServe(":8080", nil))
 }
