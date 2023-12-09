@@ -28,7 +28,5 @@ Desenvolvimento de web services para contexto de Fitness/Academia
 
 ## Executando o Projeto
 Para executar o projeto, siga estes passos:
-1. [Inserir Passo 1]
-2. [Inserir Passo 2]
-3. [Inserir Passo 3]
-4.
+1. Rodar o arquivo golang -> "go run main.go"
+2. Rodar o arquivo Consumer JS -> "node client.js"
